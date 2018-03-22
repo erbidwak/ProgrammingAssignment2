@@ -1,7 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This program receives a matrix and cache it inverse. 
+## It also checks if the inverve of the matrix is in the cache and retrieve it if needed
 
-## Write a short comment describing this function
+## This function receives a matric x and set or get it inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -17,16 +17,19 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function first checks if the inverse exists if yes, then load it. Otherwise it inverses
+## the matrix and cache it. 
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   inv <- x$getInverse()
   if(!is.null(inv)){
-    print("Loading data from cach")
+    message("Loading data from cach")
     return(inv)
   }
   m <- x$get()
+  
+  ## inverse the matrix
   inv <- solve(m,...)
   x$setInverse(inv)
   inv
